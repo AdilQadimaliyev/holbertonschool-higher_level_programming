@@ -6,8 +6,10 @@ def roman_to_int(roman_string):
              'C': 100, 'D': 500, 'M': 1000}
     result = 0
     for i in range(len(roman_string)):
-        if i + 1 < len(roman_string) and roman[roman_string[i]] < roman[roman_string[i + 1]]:
-            result -= roman[roman_string[i]]
+        current = roman[roman_string[i]]
+        next_val = roman.get(roman_string[i + 1], 0) if i + 1 < len(roman_string) else 0
+        if current < next_val:
+            result -= current
         else:
-            result += roman[roman_string[i]]
+            result += current
     return result
