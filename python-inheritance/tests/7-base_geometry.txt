@@ -33,6 +33,16 @@ age must be an integer
 ...     print(e)
 age must be an integer
 >>> try:
+...     bg.integer_validator("age", {3, 4})
+... except TypeError as e:
+...     print(e)
+age must be an integer
+>>> try:
+...     bg.integer_validator("age", None)
+... except TypeError as e:
+...     print(e)
+age must be an integer
+>>> try:
 ...     bg.area()
 ... except Exception as e:
 ...     print(e)
