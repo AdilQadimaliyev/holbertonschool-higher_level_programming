@@ -47,3 +47,8 @@ age must be an integer
 ... except Exception as e:
 ...     print(e)
 area() is not implemented
+>>> try:
+...     bg.integer_validator("age")
+... except TypeError as e:
+...     print(e)
+integer_validator() missing 1 required positional argument: 'value'
