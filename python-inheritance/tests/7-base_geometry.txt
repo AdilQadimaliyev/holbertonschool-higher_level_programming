@@ -1,0 +1,39 @@
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> try:
+...     bg.integer_validator("name", "John")
+... except TypeError as e:
+...     print(e)
+name must be an integer
+>>> try:
+...     bg.integer_validator("age", 0)
+... except ValueError as e:
+...     print(e)
+age must be greater than 0
+>>> try:
+...     bg.integer_validator("distance", -4)
+... except ValueError as e:
+...     print(e)
+distance must be greater than 0
+>>> try:
+...     bg.integer_validator("age", True)
+... except TypeError as e:
+...     print(e)
+age must be an integer
+>>> try:
+...     bg.integer_validator("age", (1,))
+... except TypeError as e:
+...     print(e)
+age must be an integer
+>>> try:
+...     bg.integer_validator("age", [1])
+... except TypeError as e:
+...     print(e)
+age must be an integer
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
